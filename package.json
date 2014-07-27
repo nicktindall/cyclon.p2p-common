@@ -1,37 +1,36 @@
 {
-    "name": "cyclon.p2p-common",
-    "version": "0.0.1",
-    "description": "Common utilities used by the cyclon.p2p stuff",
-    "keywords": [
-        "cyclon.p2p",
-        "utils"
-    ],
-    "homepage": "https://gitub.com/nicktindall/cyclon.p2p-common/wiki",
-    "bugs": "https://github.com/nicktindall/cyclon.p2p-common/issues",
-    "license": "MIT",
-    "author": {
-        "name": "Nick Tindall",
-        "email": "nick@tindall.id.au",
-        "url": "http://www.tindall.id.au"
-    },
-    "contributors": [
-        {
-            "name": "Aaron Harwood",
-            "email": "aharwood@unimelb.edu.au"
-        }
-    ],
-    "main": "lib/index.js",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/nicktindall/cyclon.p2p-common.git"
-    },
-    "scripts": {
-        "test": "make test"
-    },
-    "devDependencies": {
-        "istanbul": "0.2.x",
-        "jasmine-node": "1.14.2"
-    },
-    "dependencies": {
+  "name": "cyclon.p2p-common",
+  "version": "0.0.0",
+  "description": "Common utilities used by the cyclon.p2p stuff",
+  "keywords": [
+    "cyclon.p2p",
+    "utils"
+  ],
+  "homepage": "https://gitub.com/nicktindall/cyclon.p2p-common/wiki",
+  "bugs": "https://github.com/nicktindall/cyclon.p2p-common/issues",
+  "license": "MIT",
+  "author": {
+    "name": "Nick Tindall",
+    "email": "nick@tindall.id.au",
+    "url": "http://www.tindall.id.au"
+  },
+  "contributors": [
+    {
+      "name": "Aaron Harwood",
+      "email": "aharwood@unimelb.edu.au"
     }
+  ],
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nicktindall/cyclon.p2p-common.git"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "devDependencies": {
+    "istanbul": "0.2.x",
+    "jasmine-node": "1.14.2"
+  },
+  "dependencies": {}
 }
