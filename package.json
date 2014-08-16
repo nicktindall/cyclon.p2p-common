@@ -32,5 +32,7 @@
     "istanbul": "0.2.x",
     "jasmine-node": "1.14.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "crypto-js": "3.1.2-5"
+  }
 }
