@@ -6,65 +6,62 @@ cyclon.p2p-common
 
 Some utilities used by various [cyclon.p2p](https://github.com/nicktindall/cyclon.p2p) modules
 
-How to use
-----------
+Usage
+-----
 First install cyclon.p2p-common as a runtime dependency
 
 ```javascript
 npm install cyclon.p2p-common --save
 ```
 
-Then you can
+Then include the library using require
 
 ```javascript
 var cyclonUtils = require('cyclon.p2p-common');
+```
 
-/**
- *  Select a random subset of an array using reservoir sampling
- */
-var subset = cyclonUtils.randomSample(['some', 'elements', 'to', 'choose', 'from'], 3);
+The API
+-------
 
+### `randomSample(inputArray, sampleSize)`
 
-/**
- *  Check that an arguments array has the specified number of arguments
- */
-cyclonUtils.checkArguments(arguments, 4);   // This throws an error if the size is wrong
+Select a random sample of items from an array using reservoir sampling.
 
+#### Parameters
+* **inputArray** The array to sample from.
+* **sampleSize** The number of items to sample.
 
-/**
- *  Get the singleton console logger instance
- */
-var logger = cyclonUtils.consoleLogger().info('Reticulating Splines...');
-//  ... and change its threshold
-logger.setLevelToWarning();
+### `checkArguments(argumentsArray, expectedCount)`
 
+Check that an arguments array contains the expected number of items, throw an Error otherwise.
 
-/**
- *  Create instances of an in-memory implementation of the DOM storage API
- */
-var storage = cyclonUtils.newInMemoryStorage();
+#### Parameters
+* **argumentsArray** The arguments array to check.
+* **expectedCount** The expected size of the arguments array.
 
+### `consoleLogger()`
 
-/**
- *  Get the singleton instance of the asyncExecService interface that's used in a lot of places
- */
-var asyncExecService = cyclonUtils.asyncExecService;
-asyncExecService.setTimeout(function() {
-    console.log('I am delayed');
-}, 3000);
+Get the singleton ConsoleLogger instance.
 
+### `newInMemoryStorage()`
 
-/**
- *  Wrap implementations of the DOM storage API with an obfuscating layer
- */
-var obfuscatedSessionStorage = cyclonUtils.obfuscateStorage(sessionStorage);
+Create instances of an in-memory implementation of the [DOM storage API](http://dev.w3.org/html5/webstorage/#storage-0).
 
+### `asyncExecService()`
 
-/**
- *  Shuffle an array in place
- */
-var shuffledArray = cyclonUtils.shuffleArray(['one', 'two', 'three']);
+Get the singleton instance of the AsyncExecService interface that's used in a lot of places.
 
-````
+### `obfuscateStorage(storage)`
 
+Decorate implementations of the DOM storage API with an obfuscating layer
+
+#### Parameters
+* **storage** The storage to obfuscate.
+
+### `shuffleArray(inputArray)`
+
+Shuffle an array in place.
+
+#### Parameters
+* **inputArray** The array to shuffle.
 
