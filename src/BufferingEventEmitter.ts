@@ -3,10 +3,10 @@ import {Logger} from './ConsoleLogger';
 
 export class BufferingEventEmitter {
 
-    private bufferedEvents: BufferedEvent[];
-    private eventEmitter: EventEmitter;
-    private logger: Logger;
-    private maxBufferSize: number;
+    private readonly bufferedEvents: BufferedEvent[];
+    private readonly eventEmitter: EventEmitter;
+    private readonly logger: Logger;
+    private readonly maxBufferSize: number;
 
     constructor(logger = console, maxBufferSize = 50) {
         this.bufferedEvents = [];

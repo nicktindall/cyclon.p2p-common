@@ -12,7 +12,7 @@ const wellKnownKey = "ce56c9aa-d287-4e7c-b9d5-edca7a985487";
  */
 export class ObfuscatingStorageWrapper implements Storage {
 
-    private storage: Storage;
+    private readonly storage: Storage;
 
     constructor(storage: Storage) {
         this.storage = storage;
@@ -27,11 +27,11 @@ export class ObfuscatingStorageWrapper implements Storage {
         this.storage.setItem(this.scrambleKey(key), this.encryptValue(value));
     }
 
-    removeItem(key: string) {
+    removeItem(key: string): void {
         this.storage.removeItem(this.scrambleKey(key));
     }
 
-    clear() {
+    clear(): void {
         this.storage.clear();
     }
 
@@ -39,7 +39,7 @@ export class ObfuscatingStorageWrapper implements Storage {
         return this.storage.key(index);
     }
 
-    get length() {
+    get length(): number {
         return this.storage.length;
     }
 
@@ -48,7 +48,7 @@ export class ObfuscatingStorageWrapper implements Storage {
             return null;
         }
         try {
-            var decryptedValue = AES.decrypt(value, encryptionKey || this.getSecretKey()).toString(Utf8);
+            const decryptedValue = AES.decrypt(value, encryptionKey || this.getSecretKey()).toString(Utf8);
             return JSON.parse(decryptedValue);
         }
         catch (e) {
@@ -57,8 +57,8 @@ export class ObfuscatingStorageWrapper implements Storage {
     }
 
     private getSecretKey(): string {
-        var secretKeyName = this.scrambleKey(SECRET_KEY_KEY, wellKnownKey);
-        var secretKey: string | null = this.storage.getItem(secretKeyName);
+        const secretKeyName = this.scrambleKey(SECRET_KEY_KEY, wellKnownKey);
+        let secretKey: string | null = this.storage.getItem(secretKeyName);
         if (secretKey === null) {
             secretKey = GuidGenerator();
             this.storage.setItem(secretKeyName, this.encryptValue(secretKey, wellKnownKey));

@@ -5,7 +5,7 @@
  */
 export class InMemoryStorage implements Storage {
 
-	private store: Map<String, string>;
+	private readonly store: Map<String, string>;
 	
 	constructor() {
 		this.store = new Map();

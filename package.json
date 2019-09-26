@@ -21,6 +21,7 @@
     }
   ],
   "main": "lib/index.js",
+  "types":"lib/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/nicktindall/cyclon.p2p-common.git"
@@ -28,7 +29,8 @@
   "scripts": {
     "build": "tsc",
     "test": "make test",
-    "clean": "make clean"
+    "clean": "make clean",
+    "prepublish": "tsc"
   },
   "devDependencies": {
     "istanbul": "0.3.x",

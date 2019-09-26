@@ -12,7 +12,7 @@ export { BufferingEventEmitter } from "./BufferingEventEmitter";
  * Extract a random sample from an array of items using reservoir sampling
  */
 export function randomSample(inputArray: any[], sampleSize: number) {
-    let resultSet = [];
+    const resultSet = [];
 
     for (let i = 0; i < inputArray.length; i++) {
         if (resultSet.length < sampleSize) {
@@ -59,7 +59,7 @@ export function newInMemoryStorage(): InMemoryStorage {
 /**
  * Get the singleton AsyncExecService instance
  */
-var asyncExecServiceInstance: AsyncExecService | null = null;
+let asyncExecServiceInstance: AsyncExecService | null = null;
 export function asyncExecService(): AsyncExecService {
     if (asyncExecServiceInstance === null) {
         asyncExecServiceInstance = new AsyncExecService();

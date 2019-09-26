@@ -5,7 +5,7 @@
  */
 export class UnreachableError extends Error {
     
-    name: string;
+    readonly name: string;
 
     constructor(message: string) {
         super(message);
