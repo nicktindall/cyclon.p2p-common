@@ -1,37 +1,33 @@
-'use strict';
-
 /**
  * So we can test the set/clear Timeout/Intervals
  */
-function AsyncExecService() {
+export class AsyncExecService {
 
     /**
      * Set a timeout
      */
-    this.setTimeout = function (callback, timeout) {
+    setTimeout(callback: Function, timeout: number): number {
         return setTimeout(callback, timeout);
-    };
+    }
 
     /**
      * Set an interval
      */
-    this.setInterval = function (callback, interval) {
+    setInterval(callback: Function, interval: number): number {
         return setInterval(callback, interval);
-    };
+    }
 
     /**
      * Clear a timeout
      */
-    this.clearTimeout = function (timeoutId) {
+    clearTimeout(timeoutId: number): void {
         clearTimeout(timeoutId);
-    };
+    }
 
     /**
      * Clear an interval
      */
-    this.clearInterval = function (intervalId) {
+    clearInterval(intervalId: number): void {
         clearInterval(intervalId);
-    };
+    }
 }
-
-module.exports = AsyncExecService;

@@ -1,6 +1,6 @@
 'use strict';
 
-const BufferingEventEmitter = require("../lib/BufferingEventEmitter");
+const { BufferingEventEmitter } = require("../lib/BufferingEventEmitter");
 const EVENT_TYPE = 'somethingHappened';
 
 describe("BufferingEventEmitter", () => {
