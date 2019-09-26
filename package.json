@@ -30,7 +30,7 @@
     "build": "tsc",
     "test": "make test",
     "clean": "make clean",
-    "prepublish": "tsc"
+    "prepare": "tsc"
   },
   "devDependencies": {
     "istanbul": "0.3.x",
