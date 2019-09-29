@@ -1,5 +1,5 @@
 import {EventEmitter, Listener} from "events";
-import {Logger} from './ConsoleLogger';
+import {Logger} from './Logger';
 
 export class BufferingEventEmitter {
 

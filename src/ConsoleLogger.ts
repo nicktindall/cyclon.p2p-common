@@ -1,14 +1,8 @@
-export interface Logger {
-    error(message?: any, ...optionalParams: any[]): void;
-    warn(message?: any, ...optionalParams: any[]): void;
-    info(message?: any, ...optionalParams: any[]): void;
-    debug(message?: any, ...optionalParams: any[]): void;
-    log(message?: any, ...optionalParams: any[]): void;
-}
-
 /**
  * Configurable console logger, default level is INFO
  */
+import {Logger} from "./Logger";
+
 export class ConsoleLogger implements Logger {
 
     private level: LoggerLevel = LoggerLevel.INFO;

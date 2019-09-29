@@ -2,11 +2,12 @@
 
 import { AsyncExecService } from "./AsyncExecService";
 import { InMemoryStorage } from "./InMemoryStorage";
+import { Logger } from "./Logger";
 import { ConsoleLogger } from "./ConsoleLogger";
-export { GuidGenerator } from "./GuidGenerator";
+import { GuidGenerator } from "./GuidGenerator";
 import { ObfuscatingStorageWrapper } from "./ObfuscatingStorageWrapper";
-export { UnreachableError } from "./UnreachableError";
-export { BufferingEventEmitter } from "./BufferingEventEmitter";
+import { UnreachableError } from "./UnreachableError";
+import { BufferingEventEmitter } from "./BufferingEventEmitter";
 
 /**
  * Extract a random sample from an array of items using reservoir sampling
@@ -88,3 +89,5 @@ export function shuffleArray(inputArray: any[]) {
     }
     return inputArray;
 }
+
+export { Logger, AsyncExecService, GuidGenerator, UnreachableError, BufferingEventEmitter }
