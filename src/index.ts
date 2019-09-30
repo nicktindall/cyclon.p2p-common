@@ -90,4 +90,4 @@ export function shuffleArray(inputArray: any[]) {
     return inputArray;
 }
 
-export { Logger, AsyncExecService, GuidGenerator, UnreachableError, BufferingEventEmitter }
+export { Logger, AsyncExecService, GuidGenerator as generateGuid, UnreachableError, BufferingEventEmitter }
