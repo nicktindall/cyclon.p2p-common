@@ -68,7 +68,7 @@ export class BufferingEventEmitter {
         this.eventEmitter.removeListener(eventType, callback);
     }
 
-    removeAllListeners(eventType: string) {
+    removeAllListeners(eventType?: string) {
         this.eventEmitter.removeAllListeners(eventType);
     }
 
