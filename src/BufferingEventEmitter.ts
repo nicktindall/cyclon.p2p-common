@@ -1,4 +1,4 @@
-import {EventEmitter, Listener} from "events";
+import {EventEmitter} from "events";
 import {Logger} from './Logger';
 
 export class BufferingEventEmitter {
@@ -15,7 +15,7 @@ export class BufferingEventEmitter {
         this.maxBufferSize = maxBufferSize;
     }
 
-    once(eventType: string, callback: Listener): void {
+    once(eventType: string, callback: (...args: any[]) => void): void {
         const unhandledMessage = this.popUnhandledMessage(eventType);
         if (unhandledMessage != null) {
             callback(...unhandledMessage);
@@ -24,7 +24,7 @@ export class BufferingEventEmitter {
         }
     }
 
-    on(eventType: string, callback: Listener): void {
+    on(eventType: string, callback: (...args: any[]) => void): void {
         let unhandledMessage;
         while ((unhandledMessage = this.popUnhandledMessage(eventType)) != null) {
             callback(...unhandledMessage);
@@ -64,7 +64,7 @@ export class BufferingEventEmitter {
         });
     }
 
-    removeListener(eventType: string, callback: Listener) {
+    removeListener(eventType: string, callback: (...args: any[]) => void) {
         this.eventEmitter.removeListener(eventType, callback);
     }
 
