@@ -35,12 +35,14 @@ describe('the time limited promise', () => {
 
         let successHandler = jasmine.createSpy('success');
         let failureHandler = jasmine.createSpy('failure');
+        const MESSAGE = "The thing timed out";
 
         beforeEach((done) => {
             const promise = new Promise((resolve) => {
                 setTimeout(() => resolve("nah!"), 1000);
             });
-            timeLimitedPromise(promise, 10)
+
+            timeLimitedPromise(promise, 10, MESSAGE)
                 .then(successHandler)
                 .catch(failureHandler)
                 .finally(done);
@@ -51,7 +53,7 @@ describe('the time limited promise', () => {
         });
 
         it('will call the failure handler', () => {
-            expect(failureHandler).toHaveBeenCalledWith('Timed out after 10 ms');
+            expect(failureHandler).toHaveBeenCalledWith(MESSAGE);
         });
     });
 });

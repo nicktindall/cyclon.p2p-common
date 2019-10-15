@@ -1,5 +1,5 @@
-export function timeLimitedPromise<T>(action: Promise<T>, timeoutInMilliseconds: number): Promise<T> {
-    const timeoutWithCleanup = new TimeoutWithCleanup(timeoutInMilliseconds);
+export function timeLimitedPromise<T>(action: Promise<T>, timeoutInMilliseconds: number, message?: string): Promise<T> {
+    const timeoutWithCleanup = new TimeoutWithCleanup(timeoutInMilliseconds, message);
     return Promise.race([action, timeoutWithCleanup.promise])
         .then((result) => {
             timeoutWithCleanup.cancel();
@@ -15,7 +15,7 @@ class TimeoutWithCleanup {
     private cancelled: boolean;
     private timeOut?: any;
 
-    constructor(private readonly timeoutInMilliseconds: number) {
+    constructor(private readonly timeoutInMilliseconds: number, private readonly message?: string) {
         this.cancelled = false;
     }
 
@@ -24,7 +24,7 @@ class TimeoutWithCleanup {
             this.timeOut = setTimeout(() => {
                 clearTimeout(this.timeOut);
                 if (!this.cancelled) {
-                    reject(`Timed out after ${this.timeoutInMilliseconds} ms`);
+                    reject(this.message || `Timed out after ${this.timeoutInMilliseconds} ms`);
                 }
             }, this.timeoutInMilliseconds);
         });
