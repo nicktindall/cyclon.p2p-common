@@ -24,7 +24,7 @@ class TimeoutWithCleanup {
             this.timeOut = setTimeout(() => {
                 clearTimeout(this.timeOut);
                 if (!this.cancelled) {
-                    reject(this.message || `Timed out after ${this.timeoutInMilliseconds} ms`);
+                    reject(new TimeoutError(this.message || `Timed out after ${this.timeoutInMilliseconds} ms`));
                 }
             }, this.timeoutInMilliseconds);
         });
@@ -33,5 +33,12 @@ class TimeoutWithCleanup {
     cancel(): void {
         clearTimeout(this.timeOut);
         this.cancelled = true;
+    }
+}
+
+export class TimeoutError extends Error {
+
+    constructor(message: string) {
+        super(message);
     }
 }

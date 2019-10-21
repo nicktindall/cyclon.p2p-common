@@ -1,4 +1,4 @@
-const {timeLimitedPromise} = require('../lib/TimeLimitedPromise');
+const {timeLimitedPromise, TimeoutError} = require('../lib/TimeLimitedPromise');
 
 describe('the time limited promise', () => {
 
@@ -38,6 +38,8 @@ describe('the time limited promise', () => {
         const MESSAGE = "The thing timed out";
 
         beforeEach((done) => {
+            failureHandler.calls.reset();
+            successHandler.calls.reset();
             const promise = new Promise((resolve) => {
                 setTimeout(() => resolve("nah!"), 1000);
             });
@@ -53,7 +55,11 @@ describe('the time limited promise', () => {
         });
 
         it('will call the failure handler', () => {
-            expect(failureHandler).toHaveBeenCalledWith(MESSAGE);
+            expect(failureHandler).toHaveBeenCalledWith(new TimeoutError(MESSAGE));
+        });
+
+        it('will throw errors of a specific type', () => {
+            expect(failureHandler.calls.mostRecent().args[0] instanceof TimeoutError).toEqual(true);
         });
     });
 });

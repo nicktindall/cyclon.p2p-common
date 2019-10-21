@@ -8,7 +8,7 @@ import { GuidGenerator } from "./GuidGenerator";
 import { ObfuscatingStorageWrapper } from "./ObfuscatingStorageWrapper";
 import { UnreachableError } from "./UnreachableError";
 import { BufferingEventEmitter } from "./BufferingEventEmitter";
-import { timeLimitedPromise} from './TimeLimitedPromise';
+import { timeLimitedPromise, TimeoutError } from './TimeLimitedPromise';
 
 /**
  * Extract a random sample from an array of items using reservoir sampling
@@ -91,4 +91,4 @@ export function shuffleArray(inputArray: any[]) {
     return inputArray;
 }
 
-export { Logger, AsyncExecService, GuidGenerator as generateGuid, UnreachableError, BufferingEventEmitter, timeLimitedPromise }
+export { Logger, AsyncExecService, GuidGenerator as generateGuid, UnreachableError, BufferingEventEmitter, timeLimitedPromise, TimeoutError }
