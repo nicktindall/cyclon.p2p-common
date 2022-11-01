@@ -33,7 +33,7 @@
     "prepare": "npm run build"
   },
   "devDependencies": {
-    "istanbul": "0.3.x",
+    "istanbul": "0.4.x",
     "jasmine-node": "2.0.x",
     "typescript": "^3.6.3"
   },
